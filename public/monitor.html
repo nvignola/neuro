@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Neuro Monitoring Demo</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <h1>Neuro Monitoring Demo</h1>
+    <p id="buttonCount">The button has been clicked 0 times.</p>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect();
+
+      //when we receive numClients, do this
+      socket.on("buttonUpdate", function (data) {
+        document.getElementById("buttonCount").innerHTML =
+          "The button has been clicked " + data + " times.";
+      });
+    </script>
+  </body>
+</html>
