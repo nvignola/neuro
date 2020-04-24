@@ -1,0 +1,27 @@
+{
+  "name": "neuro",
+  "version": "1.0.0",
+  "description": "Websocket neurologic tester",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvignola/neuro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nvignola/neuro/issues"
+  },
+  "homepage": "https://github.com/nvignola/neuro#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
