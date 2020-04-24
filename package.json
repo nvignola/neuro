@@ -4,7 +4,8 @@
   "description": "Websocket neurologic tester",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build": "parcel build ./pages/**/*.html"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/nvignola/neuro#readme",
   "dependencies": {
     "express": "^4.15.2",
+    "parcel-bundler": "^1.12.4",
     "socket.io": "^1.7.3"
   },
   "devDependencies": {
