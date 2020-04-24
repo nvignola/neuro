@@ -4,9 +4,6 @@ var app = express();
 var server = require("http").createServer(app);
 var io = require("socket.io")(server);
 
-//keep track of how times clients have clicked the button
-var clickCount = 0;
-
 app.use(express.static(__dirname + "/public"));
 //redirect / to our index.html file
 app.get("/", function (req, res, next) {
