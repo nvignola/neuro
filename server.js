@@ -13,12 +13,13 @@ app.get("/", function (req, res, next) {
   res.sendFile(__dirname + "/public/index.html");
 });
 
+app.get("/monitor", function (req, res, next) {
+  res.sendFile(__dirname + "/public/monitor.html");
+});
+
 io.on("connection", function (client) {
-  //when the server receives clicked message, do this
-  client.on("clicked", function (data) {
-    clickCount++;
-    //send a message to ALL connected clients
-    io.emit("buttonUpdate", clickCount);
+  client.on("elementSelection", function (data) {
+    io.emit("selectionUpdate", data);
   });
 });
 

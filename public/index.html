@@ -12,14 +12,43 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Neuro Demo</h1>
-    <button onclick="buttonClicked()">Click me</button>
+    <div class="container">
+      <h1>Neuro Demo</h1>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>5</td>
+            <td>3</td>
+            <td>2</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>5</td>
+            <td>2</td>
+            <td>1</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>1</td>
+            <td>5</td>
+            <td>3</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      // TODO: table with numbers
-      // TODO: click on table showed in monitor
+      const socket = io.connect();
+      const table = document.querySelector("table");
 
-      var socket = io.connect();
+      table.addEventListener("click", function (event) {
+        socket.emit("elementSelection", { x: event.x, y: event.y });
+        event.target.classList.add("selected");
+      });
 
       function buttonClicked() {
         socket.emit("clicked");

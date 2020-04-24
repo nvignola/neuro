@@ -3,20 +3,57 @@
   <head>
     <title>Neuro Monitoring Demo</title>
     <meta charset="utf-8" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <h1>Neuro Monitoring Demo</h1>
-    <p id="buttonCount">The button has been clicked 0 times.</p>
+    <div class="container">
+      <h1>Neuro Monitoring Demo</h1>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>5</td>
+            <td>3</td>
+            <td>2</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>5</td>
+            <td>2</td>
+            <td>1</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>1</td>
+            <td>5</td>
+            <td>3</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      var socket = io.connect();
+      const socket = io.connect();
 
       //when we receive numClients, do this
-      socket.on("buttonUpdate", function (data) {
-        document.getElementById("buttonCount").innerHTML =
-          "The button has been clicked " + data + " times.";
+      socket.on("selectionUpdate", function ({ x, y }) {
+        const span = document.createElement("span");
+        span.style.cssText = `position: absolute; top: ${y - 15}px; left: ${
+          x - 15
+        }px`;
+        span.classList.add("marker");
+
+        document.body.appendChild(span);
       });
     </script>
   </body>
