@@ -4,7 +4,7 @@ const socket = io.connect();
 const table = document.querySelector("table");
 
 table.addEventListener("click", function (event) {
-  socket.emit("elementSelection", { x: event.x, y: event.y });
+  socket.emit("elementSelection", { id: event.target.id });
   event.target.classList.add("selected");
 });
 

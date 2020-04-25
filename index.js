@@ -7,11 +7,11 @@ var io = require("socket.io")(server);
 app.use(express.static(__dirname + "/dist"));
 //redirect / to our index.html file
 app.get("/", function (req, res, next) {
-  res.sendFile(__dirname + "/dist/index.html");
+  res.sendFile(__dirname + "/dist/index/index.html");
 });
 
 app.get("/monitor", function (req, res, next) {
-  res.sendFile(__dirname + "/dist/monitor.html");
+  res.sendFile(__dirname + "/dist/monitor/monitor.html");
 });
 
 io.on("connection", function (client) {
