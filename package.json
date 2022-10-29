@@ -22,7 +22,7 @@
   "dependencies": {
     "express": "^4.15.2",
     "parcel-bundler": "^1.12.4",
-    "socket.io": "^1.7.3"
+    "socket.io": "^4.5.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
